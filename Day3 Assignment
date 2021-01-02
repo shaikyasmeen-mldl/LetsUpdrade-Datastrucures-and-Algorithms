@@ -1,0 +1,68 @@
+//Answer 1
+
+void beginsert(int item)  
+    {  
+        struct node *ptr = (struct node *)malloc(sizeof(struct node *));  
+        if(ptr == NULL)  
+        {  
+            printf("\nOVERFLOW\n");  
+        }  
+        else  
+        {  
+            ptr->data = item;  
+            ptr->next = head;  
+            head = ptr;  
+            printf("\nNode inserted\n");  
+        }  
+          
+    }  
+
+--------------------------------------------------------------------------------------------------------------------------
+//Answer 2
+
+void begdelete()  
+    {  
+        struct node *ptr;  
+        if(head == NULL)  
+        {  
+            printf("\nList is empty");  
+        }  
+        else   
+        {  
+            ptr = head;  
+            head = ptr->next;  
+            free(ptr);  
+            printf("\n Node deleted from the begining ...");  
+        }  
+    }  
+
+-----------------------------------------------
+//Answer 3
+
+void end_delete()  
+    {  
+        struct node *ptr,*ptr1;  
+        if(head == NULL)  
+        {  
+            printf("\nlist is empty");  
+        }  
+        else if(head -> next == NULL)  
+        {  
+            head = NULL;  
+            free(head);  
+            printf("\nOnly node of the list deleted ...");  
+        }  
+              
+        else  
+        {  
+            ptr = head;   
+            while(ptr->next != NULL)  
+                {  
+                    ptr1 = ptr;  
+                    ptr = ptr ->next;  
+                }  
+                ptr1->next = NULL;  
+                free(ptr);  
+                printf("\n Deleted Node from the last ...");  
+            }     
+      }
